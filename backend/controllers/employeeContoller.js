@@ -1,4 +1,4 @@
-const Employee = require('../models/userInfo/personalInfo');
+const Employee = require('../models/userInfo/employeeModel');
 
 
 const createEmployee = async (req,res) => {
