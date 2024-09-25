@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors');
 
 const ConnectDb = require('./dbConnect');
-const router = require('./routes/employeeData')
+const employeeRouter = require('./routes/employeeRouter')
+const uploadRouter = require('./routes/uploadRouter')
 
 require('dotenv').config();
 
@@ -11,7 +12,8 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', router)
+app.use('/api', employeeRouter);
+app.use('/api/upload', uploadRouter);
 
 ConnectDb();
 

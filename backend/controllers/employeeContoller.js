@@ -1,5 +1,5 @@
 const Employee = require('../models/userInfo/personalInfo');
-const mongoose = require('mongoose');
+
 
 const createEmployee = async (req,res) => {
         try {
@@ -11,5 +11,7 @@ const createEmployee = async (req,res) => {
         }
 }
 
-module.exports = {createEmployee};
+
+
+module.exports = { createEmployee };
 
