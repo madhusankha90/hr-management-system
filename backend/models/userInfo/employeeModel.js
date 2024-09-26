@@ -9,7 +9,6 @@ const employeeSchema = new mongoose.Schema({
           employeeId: {
             type: String,
             required:true,
-            unique: true,
           },
           otherId: {
             type: String,
@@ -18,7 +17,6 @@ const employeeSchema = new mongoose.Schema({
           licenseNumber: {
             type: String,
             required: false,
-            unique: true,
           },
           licenseExpireDate: {
             type: Date,
