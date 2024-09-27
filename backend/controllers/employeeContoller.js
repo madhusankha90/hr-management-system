@@ -1,4 +1,5 @@
 const Employee = require("../models/userInfo/employeeModel");
+const User = require('../models/userInfo/user')
 
 
 const createEmployee = async (req, res) => {
@@ -43,7 +44,7 @@ const updateEmployee = async (req, res) => {
 
   try {
     const updateResult = await Employee.updateOne(
-      { userName : userName },
+      { userName },
       { $set: updateEmployeeData }
     );
 
@@ -57,4 +58,27 @@ const updateEmployee = async (req, res) => {
   }
 };
 
-module.exports = { createEmployee,  updateEmployee };
+const addUser = async(req,res) => {
+  const {name,phoneNumber} = req.body;
+  try {
+    const user = new User({name,phoneNumber});
+    await user.save();
+    res.status(200).json({message:"user saved"})
+  } catch (error) {
+    res.status(500).json({error:"internal error"})
+  }
+  
+}
+const updateUser = async (req,res) => {
+  const {name,phoneNumber} = req.body;
+  try {
+    await User.updateOne({name},{$set:{phoneNumber}})
+    res.status(200).json({message: "user updated"})
+  } catch (error) {
+    res.status(500).json({error:"error"})
+  }
+}
+
+
+
+module.exports = { createEmployee,  updateEmployee ,addUser,updateUser};
