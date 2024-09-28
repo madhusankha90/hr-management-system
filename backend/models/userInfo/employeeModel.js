@@ -2,49 +2,96 @@ const mongoose = require("mongoose");
 
 const employeeSchema = new mongoose.Schema(
   {
-    userName: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     personalDetails: {
       fullName: {
         type: String,
-        required: true,
+        default: none
       },
       employeeId: {
         type: String,
-        required: true,
+        default: none
       },
       otherId: {
         type: String,
-        required: false,
+        default: none
       },
       licenseNumber: {
         type: String,
-        required: false,
+        default: none
       },
       licenseExpireDate: {
         type: Date,
-        required: false,
+        default: none
       },
       nationality: {
         type: String,
-        default: "American",
+        default: "Sri Lanka",
       },
       maritalStatus: {
         type: String,
         enum: ["Single", "Married", "Other"],
-        required: true,
+        default: none
       },
       dateOfBirth: {
         type: Date,
-        required: true,
+        required: false,
       },
       gender: {
         type: String,
         enum: ["male", "female"],
-        required: true,
+        required: false,
+      },
+    },
+    contactsDetails: {
+      address: {
+        street1: {
+          type: String,
+          required: false,
+        },
+        street2: {
+          type: String,
+          required: false,
+        },
+        city: {
+          type: String,
+          required: false,
+        },
+        state: {
+          type: String,
+          required: false,
+        },
+        zip: {
+          type: String,
+          required: false,
+        },
+        country: {
+          type: String,
+          required: false,
+        },
+      },
+      telePhone: {
+        home: {
+          type: String,
+          required: false,
+        },
+        mobile: {
+          type: String,
+          required: false,
+        },
+        work: {
+          type: String,
+          required: false,
+        },
+      },
+      email: {
+        workEmail: {
+          type: String,
+          required: true,
+        },
+        otherEmail: {
+          type: String,
+          required: false,
+        },
       },
     },
     customFields: {

@@ -1,11 +1,11 @@
 const express = require('express');
-const { createEmployee,  updateEmployee, addUser, updateUser } = require('../controllers/employeeContoller');
+const { createEmployee,  updateEmployee, createContact } = require('../controllers/employeeContoller');
 const router = express.Router();
 
 router.post('/create-employee',createEmployee);
+router.post('/create-contact', createContact);
 router.put('/update-employee/:id', updateEmployee);
-router.post('/adduser',addUser);
-router.put('/updateuser',updateUser)
+
 
 
 
