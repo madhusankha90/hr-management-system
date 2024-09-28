@@ -5,23 +5,23 @@ const employeeSchema = new mongoose.Schema(
     personalDetails: {
       fullName: {
         type: String,
-        default: none
+        default: "none"
       },
       employeeId: {
         type: String,
-        default: none
+        default: "none"
       },
       otherId: {
         type: String,
-        default: none
+        default: "none"
       },
       licenseNumber: {
         type: String,
-        default: none
+        default: "none"
       },
       licenseExpireDate: {
         type: Date,
-        default: none
+        default: "none"
       },
       nationality: {
         type: String,
@@ -30,67 +30,68 @@ const employeeSchema = new mongoose.Schema(
       maritalStatus: {
         type: String,
         enum: ["Single", "Married", "Other"],
-        default: none
+        default: "none"
       },
       dateOfBirth: {
         type: Date,
         required: false,
+        default: "none"
       },
       gender: {
         type: String,
         enum: ["male", "female"],
-        required: false,
+        default: "none"
       },
     },
     contactsDetails: {
       address: {
         street1: {
           type: String,
-          required: false,
+          default: "none"
         },
         street2: {
           type: String,
-          required: false,
+          default: "none"
         },
         city: {
           type: String,
-          required: false,
+          default: "none"
         },
         state: {
           type: String,
-          required: false,
+          default: "none"
         },
         zip: {
           type: String,
-          required: false,
+          default: "none"
         },
         country: {
           type: String,
-          required: false,
+          default: "none"
         },
       },
       telePhone: {
         home: {
           type: String,
-          required: false,
+          default: "none"
         },
         mobile: {
           type: String,
-          required: false,
+          default: "none"
         },
         work: {
           type: String,
-          required: false,
+          default: "none"
         },
       },
       email: {
         workEmail: {
           type: String,
-          required: true,
+          default: "none"
         },
         otherEmail: {
           type: String,
-          required: false,
+          default: "none"
         },
       },
     },
@@ -98,11 +99,11 @@ const employeeSchema = new mongoose.Schema(
       bloodType: {
         type: String,
         enum: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
-        required: false,
+        default: "none"
       },
       testField: {
         type: String,
-        required: false,
+        default: "none"
       },
     },
   },
