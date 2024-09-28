@@ -3,8 +3,9 @@ const User = require('../models/userInfo/user')
 
 
 const createEmployee = async (req, res) => {
+  const { userName, personalDetails, customFields } = req.body;
   try {
-    const employee = new Employee(req.body);
+    const employee = new Employee({userName, personalDetails, customFields});
     await employee.save();
     res.status(200).json({ message: "personal details saved successfully" });
   } catch (error) {
@@ -12,51 +13,51 @@ const createEmployee = async (req, res) => {
   }
 };
 
-const updateEmployee = async (req, res) => {
-  const {
-    userName,
-    fullName,
-    employeeId,
-    otherId,
-    licenseNumber,
-    licenseExpireDate,
-    nationality,
-    maritalStatus,
-    dateOfBirth,
-    gender,
-    bloodType,
-    testField,
-  } = req.body;
+// const updateEmployee = async (req, res) => {
+//   const {
+//     userName,
+//     fullName,
+//     employeeId,
+//     otherId,
+//     licenseNumber,
+//     licenseExpireDate,
+//     nationality,
+//     maritalStatus,
+//     dateOfBirth,
+//     gender,
+//     bloodType,
+//     testField,
+//   } = req.body;
 
-  const updateEmployeeData = {
-    "personalDetails.fullName": fullName,
-    "personalDetails.employeeId": employeeId,
-    "personalDetails.otherId": otherId,
-    "personalDetails.licenseNumber": licenseNumber,
-    "personalDetails.licenseExpireDate": licenseExpireDate,
-    "personalDetails.nationality": nationality,
-    "personalDetails.maritalStatus": maritalStatus,
-    "personalDetails.dateOfBirth": dateOfBirth,
-    "personalDetails.gender": gender,
-    "customFields.bloodType": bloodType,
-    "customFields.testField": testField,
-  };
+  // const updateEmployeeData = {
+  //   "personalDetails.fullName": fullName,
+  //   "personalDetails.employeeId": employeeId,
+  //   "personalDetails.otherId": otherId,
+  //   "personalDetails.licenseNumber": licenseNumber,
+  //   "personalDetails.licenseExpireDate": licenseExpireDate,
+  //   "personalDetails.nationality": nationality,
+  //   "personalDetails.maritalStatus": maritalStatus,
+  //   "personalDetails.dateOfBirth": dateOfBirth,
+  //   "personalDetails.gender": gender,
+  //   "customFields.bloodType": bloodType,
+  //   "customFields.testField": testField,
+  // };
 
-  try {
-    const updateResult = await Employee.updateOne(
-      { userName },
-      { $set: updateEmployeeData }
-    );
+  // try {
+  //   const updateResult = await Employee.updateOne(
+  //     { userName },
+  //     { $set: updateEmployeeData }
+  //   );
 
-    if (updateResult.modifiedCount === 0) {
-      return res.status(404).json({ message: "Employee not found or no changes made" });
-    }
+  //   if (updateResult.modifiedCount === 0) {
+  //     return res.status(404).json({ message: "Employee not found or no changes made" });
+  //   }
 
-    res.status(200).json({ message: "employee updated" });
-  } catch (error) {
-    res.status(500).json({ error: "internal server error" });
-  }
-};
+//     res.status(200).json({ message: "employee updated" });
+//   } catch (error) {
+//     res.status(500).json({ error: "internal server error" });
+//   }
+// };
 
 const addUser = async(req,res) => {
   const {name,phoneNumber} = req.body;
@@ -78,6 +79,27 @@ const updateUser = async (req,res) => {
     res.status(500).json({error:"error"})
   }
 }
+const updateEmployee = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userName, personalDetails, customFields } = req.body;
+
+    // Find the employee by ID and update the fields
+    const updatedEmployee = await Employee.findByIdAndUpdate(
+      id,
+      { userName, personalDetails, customFields },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedEmployee) {
+      return res.status(404).json({ message: "Employee not found" });
+    }
+
+    res.status(200).json(updatedEmployee);
+  } catch (error) {
+    res.status(500).json({ message: "Error updating employee", error });
+  }
+};
 
 
 
