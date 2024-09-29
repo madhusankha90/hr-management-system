@@ -1,17 +1,17 @@
 const Employee = require("../models/userInfo/employeeModel");
-const ContactDetail = require('../models/userInfo/contactModel')
+//const ContactDetail = require('../models/userInfo/contactModel')
 
 
-const createEmployee = async (req, res) => {
-  const { personalDetails ,contactsDetails = {},customFields = {} } = req.body;
-  try {
-    const employee = new Employee({personalDetails,contactsDetails,customFields});
-    await employee.save();
-    res.status(200).json({ message: "personal details saved successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "internal server error" });
-  }
-};
+// const createEmployee = async (req, res) => {
+//   const { personalDetails= {} ,contactsDetails = {},customFields = {} } = req.body;
+//   try {
+//     const employee = new Employee({personalDetails,contactsDetails,customFields});
+//     await employee.save();
+//     res.status(200).json({ message: "personal details saved successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: "internal server error" });
+//   }
+// };
 
 
 
@@ -47,6 +47,58 @@ const createContact = async (req,res) => {
     res.status(500).json({error:"internal server error"})
   }
 }
+
+
+
+const createEmployee = async (req, res) => {
+  try {
+    const { personalDetails = {}, contactsDetails = {}, customFields = {} } = req.body;
+
+    // Create the new employee with the provided and default data
+    const employee = new Employee({
+      personalDetails: {
+        fullName: personalDetails.fullName || "none",
+        employeeId: personalDetails.employeeId || "none",
+        otherId: personalDetails.otherId || "none",
+        licenseNumber: personalDetails.licenseNumber || "none",
+        licenseExpireDate: personalDetails.licenseExpireDate || "none",
+        nationality: personalDetails.nationality || "Sri Lanka",
+        maritalStatus: personalDetails.maritalStatus || "none",
+        dateOfBirth: personalDetails.dateOfBirth || "none",
+        gender: personalDetails.gender || "none"
+      },
+      contactsDetails: {
+        address: {
+          street1: contactsDetails.address?.street1 || "none",
+          street2: contactsDetails.address?.street2 || "none",
+          city: contactsDetails.address?.city || "none",
+          state: contactsDetails.address?.state || "none",
+          zip: contactsDetails.address?.zip || "none",
+          country: contactsDetails.address?.country || "none"
+        },
+        telePhone: {
+          home: contactsDetails.telePhone?.home || "none",
+          mobile: contactsDetails.telePhone?.mobile || "none",
+          work: contactsDetails.telePhone?.work || "none"
+        },
+        email: {
+          workEmail: contactsDetails.email?.workEmail || "none",
+          otherEmail: contactsDetails.email?.otherEmail || "none"
+        }
+      },
+      customFields: {
+        bloodType: customFields.bloodType || "none",
+        testField: customFields.testField || "none"
+      }
+    });
+
+    await employee.save();
+    res.status(200).json({ message: "Employee created successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error", details: error.message });
+  }
+};
+
 
 
 module.exports = { createEmployee,  updateEmployee , createContact};
