@@ -21,7 +21,8 @@ const employeeSchema = new mongoose.Schema(
       },
       licenseExpireDate: {
         type: Date,
-        default: "none"
+        default: null,
+
       },
       nationality: {
         type: String,
@@ -35,7 +36,7 @@ const employeeSchema = new mongoose.Schema(
       dateOfBirth: {
         type: Date,
         required: false,
-        default: "none"
+        default: null
       },
       gender: {
         type: String,
@@ -99,7 +100,7 @@ const employeeSchema = new mongoose.Schema(
       bloodType: {
         type: String,
         enum: ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
-        default: "none"
+        default: null
       },
       testField: {
         type: String,
