@@ -1,5 +1,6 @@
 const Employee = require("../models/userInfo/employeeModel");
-const ContactDetail = require('../models/userInfo/contactModel')
+
+
 
 const createEmployee = async (req, res) => {
   const { personalDetails = {}, contactsDetails = {}, customFields = {} } = req.body;
@@ -55,4 +56,4 @@ const updateEmployee = async (req, res) => {
 
 
 
-module.exports = { createEmployee,  updateEmployee , createContact};
+module.exports = { createEmployee,  updateEmployee };
