@@ -16,32 +16,32 @@ const Login = () => {
       </div>
 
       {/* Form */}
-      <div className="absolute w-[357px] h-[605px] left-[462px] top-[89px]">
+      <div className="absolute w-[90%] max-w-[357px] h-auto left-1/2 transform -translate-x-1/2 top-[10%] sm:top-[20%]">
         {/* Welcome Back */}
-        <h1 className="absolute text-white text-2xl font-bold left-[89px] top-[0] uppercase">
+        <h1 className="text-white text-2xl font-bold text-center uppercase">
           Welcome Back
         </h1>
 
         {/* Username Field */}
-        <div className="absolute w-full h-[45px] top-[356px]">
+        <div className="w-full mt-6">
           <input
             type="text"
             placeholder="Username"
-            className="w-full h-full px-4 py-2 text-white bg-transparent border border-white rounded-md placeholder-white uppercase"
+            className="w-full h-[45px] px-4 py-2 text-white bg-transparent border border-white rounded-md placeholder-white uppercase focus:outline-none focus:border-green-400"
           />
         </div>
 
         {/* Password Field */}
-        <div className="absolute w-full h-[45px] top-[421px]">
+        <div className="w-full mt-4">
           <input
             type="password"
             placeholder="Password"
-            className="w-full h-full px-4 py-2 text-white bg-transparent border border-white rounded-md placeholder-white uppercase"
+            className="w-full h-[45px] px-4 py-2 text-white bg-transparent border border-white rounded-md placeholder-white uppercase focus:outline-none focus:border-green-400"
           />
         </div>
 
         {/* Remember Me and Forgot Password */}
-        <div className="absolute flex justify-between w-full top-[480px]">
+        <div className="flex justify-between mt-4">
           <label className="text-white text-sm">
             <input type="checkbox" className="mr-2" />
             Remember me
@@ -52,14 +52,14 @@ const Login = () => {
         </div>
 
         {/* Login Button */}
-        <div className="absolute w-full h-[45px] top-[520px]">
-          <button className="w-full h-full bg-white text-green-700 font-semibold uppercase rounded-md shadow-md">
+        <div className="mt-6">
+          <button className="w-full h-[45px] bg-white text-green-700 font-semibold uppercase rounded-md shadow-md hover:bg-green-100">
             Login
           </button>
         </div>
 
         {/* Sign Up */}
-        <p className="absolute w-full text-center text-white opacity-70 top-[580px]">
+        <p className="mt-4 text-center text-white opacity-70">
           Don’t have an account? <a href="/signup" className="underline">Sign Up</a>
         </p>
       </div>
