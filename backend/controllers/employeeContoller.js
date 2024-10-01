@@ -23,32 +23,77 @@ const createEmployee = async (req, res) => {
 };
 
 const updateEmployee = async (req, res) => {
+  const { employeeId } = req.body;  // extracting employeeId from the request body
+  const { personalDetails, contactsDetails, customFields } = req.body;  // extracting the data to update
+
   try {
-    const { id } = req.params;
-    const { personalDetails, contactsDetails, customFields } = req.body;
+    // Check if the employee exists
+    const existingEmployee = await Employee.findOne({ employeeId });
 
-    // Find the employee by ID and update the fields
-    const updatedEmployee = await Employee.findByIdAndUpdate(
-      id,
-      {
-        $set: {
-          ...(personalDetails && { personalDetails }),
-          ...(contactsDetails && { contactsDetails }),
-          ...(customFields && { customFields }),
+    if (existingEmployee) {
+      // Update the existing employee
+      const updatedEmployee = await Employee.findOneAndUpdate(
+        { employeeId },
+        {
+          $set: {
+            ...(personalDetails && { personalDetails }),
+            ...(contactsDetails && { contactsDetails }),
+            ...(customFields && { customFields }),
+          }
         },
-      },
-      { new: true, runValidators: true } // Return the updated document and apply validation
-    );
+        { new: true, runValidators: true } // Return the updated document and apply validation
+      );
 
-    if (!updatedEmployee) {
-      return res.status(404).json({ message: "Employee not found" });
+      res.status(200).json({ message: "Employee updated successfully", updatedEmployee });
+    } else {
+      // Create a new employee if it doesn't exist
+      if (!contactsDetails && !customFields) {
+        // Create a new employee with default contactsDetails and customFields
+        const newEmployee = new Employee({
+          personalDetails,
+          contactsDetails: {
+            address: {
+              street1: "none",
+              street2: "none",
+              city: "none",
+              state: "none",
+              zip: "none",
+              country: "none",
+            },
+            telePhone: {
+              home: "none",
+              mobile: "none",
+              work: "none",
+            },
+            email: {
+              workEmail: "none",
+              otherEmail: "none",
+            },
+          },
+          customFields: {
+            testField: "none",
+          },
+        });
+
+        await newEmployee.save();
+
+        res.status(201).json({ message: "Employee created successfully", newEmployee });
+      } else {
+        // Create a new employee with the provided data
+        const newEmployee = new Employee({
+          personalDetails,
+          contactsDetails,
+          customFields,
+        });
+
+        await newEmployee.save();
+
+        res.status(201).json({ message: "Employee created successfully", newEmployee });
+      }
     }
-
-    // Return the updated employee document
-    res.status(200).json({ message: "Employee updated successfully", updatedEmployee });
   } catch (error) {
-    console.error("Error updating employee:", error);
-    res.status(500).json({ message: "Error updating employee", error });
+    console.error("Error updating/creating employee:", error);
+    res.status(500).json({ message: "Error updating/creating employee", error });
   }
 };
 

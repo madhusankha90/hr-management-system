@@ -3,7 +3,7 @@ const { createEmployee,  updateEmployee} = require('../controllers/employeeConto
 const router = express.Router();
 
 router.post('/create-employee',createEmployee);
-router.put('/update-employee/:id', updateEmployee);
+router.put('/update-employee', updateEmployee);
 
 
 
