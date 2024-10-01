@@ -149,4 +149,13 @@ const employeeSchema = new mongoose.Schema(
 
 const Employee = mongoose.model("employees", employeeSchema);
 
+
+Employee.collection.dropIndex("userName_1", (err) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log("Index dropped successfully");
+  }
+});
+
 module.exports = Employee;
