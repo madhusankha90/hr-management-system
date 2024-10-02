@@ -16,7 +16,7 @@ const createUser = async (req,res) => {
       const hash = bcrypt.hashSync(password, 10);
       const users = new User({userRole,employeeName,status,employeeId,password: hash,confirmPassword: hash});
       await users.save();
-      res.status(200).json({message:"user saved"});
+      res.status(201).json({message:"user created successfully"});
   
     } catch (error) {
       res.status(400).json({error: "user save error"})
