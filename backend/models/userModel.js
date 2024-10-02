@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    employeeId:{
+        type: String,
+        required: true
+    },
     userRole:{
         type: String,
         enum: ["admin","employee"],
@@ -15,11 +19,6 @@ const userSchema = new mongoose.Schema({
         enum: ["enable", "disable"],
         required: true
     },
-    employeeId:{
-        type: String,
-        required: true,
-        unique: true
-    },
     password:{
         type: String,
         required: true
@@ -29,9 +28,12 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 },{
-    timestamps: true
+    timestamps: true,
+    autoIndex: false,
+    autoCreate: false
 });
 
 const User = mongoose.model('users', userSchema);
+
 
 module.exports = User;
