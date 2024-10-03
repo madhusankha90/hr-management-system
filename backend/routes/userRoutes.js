@@ -9,7 +9,7 @@ router.post('/logout', logOutUser);
 
 router.get('/admin', authenticateToken, (req, res) => {
     
-    if (req.user.userRole !== 'admin') {
+    if (!req.user || req.user.userRole !== 'admin') {
       return res.status(403).json({ message: "Access denied, admin only" });
     }
   
