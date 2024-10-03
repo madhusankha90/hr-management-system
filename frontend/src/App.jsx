@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
 import AdminDashboard from './pages/AdminDashboard';
+import PrivateRoute from './components/PrivateRoute';
+import UserDashboard from './components/UserDashboard';
 
 const App = () => {
   return (
@@ -13,8 +14,12 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/admin-dashboard' element={<AdminDashboard/>}></Route>
+
+          <Route path='/admin-dashboard' element={<PrivateRoute role="admin" component={AdminDashboard}/>}/>
+
+          <Route path='/user-dashboard' element={<PrivateRoute role="user" component={UserDashboard}/>}/>
+
+        
         </Routes>
       </BrowserRouter>
     </div>
