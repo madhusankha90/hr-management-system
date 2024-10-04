@@ -1,4 +1,4 @@
-const Employee = require("../models/userInfo/employeeModel");
+const Employee = require("../models/employeeModel");
 
 const createEmployee = async (req, res) => {
   const { personalDetails, contactsDetails, customFields } = req.body;

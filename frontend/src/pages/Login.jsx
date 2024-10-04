@@ -18,7 +18,16 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        navigate('/');
+        const token = response.data.token;
+        const role = response.data.userRole;
+    
+        localStorage.setItem('token',token);
+        if (role === 'admin') {
+          navigate('/admin-dashboard');
+        }
+        else {
+          navigate('/user-dashboard');
+        }     
       }
     } catch (error) {
       setError(error.response?.data?.message || 'An error occurred');
