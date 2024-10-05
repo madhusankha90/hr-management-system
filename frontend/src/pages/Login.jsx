@@ -27,7 +27,8 @@ const Login = () => {
         }
         else {
           navigate('/user-dashboard');
-        }     
+        }  
+
       }
     } catch (error) {
       setError(error.response?.data?.message || 'An error occurred');
