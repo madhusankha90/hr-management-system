@@ -18,16 +18,17 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-        const token = response.data.token;
-        const role = response.data.userRole;
+    
+        const {token, user} = response.data;
+        const {userRole} = user;
     
         localStorage.setItem('token',token);
-        if (role === 'admin') {
+       
+        if (userRole === 'admin') {
           navigate('/admin-dashboard');
-        }
-        else {
+        }else {
           navigate('/user-dashboard');
-        }  
+        }
 
       }
     } catch (error) {
