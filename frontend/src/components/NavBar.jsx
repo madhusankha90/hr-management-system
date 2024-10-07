@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import w3inventor from '../imges/w3inventor.png';
 
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
+import MilitaryTechOutlinedIcon from '@mui/icons-material/MilitaryTechOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+
 const NavBar = () => {
   const [activeItem, setActiveItem] = useState('Dashboard'); // Manage active state
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -30,6 +38,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Dashboard')}
           >
+            <HomeOutlinedIcon />
             <a href="#" className="ml-2">Dashboard</a>
           </li>
           <li
@@ -38,6 +47,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Leave')}
           >
+            <ExitToAppOutlinedIcon />
             <a href="#" className="ml-2">Leave</a>
           </li>
           <li
@@ -46,6 +56,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Time')}
           >
+            <AccessTimeOutlinedIcon />
             <a href="#" className="ml-2">Time</a>
           </li>
           <li
@@ -54,6 +65,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Performance')}
           >
+            <MilitaryTechOutlinedIcon />
             <a href="#" className="ml-2">Performance</a>
           </li>
           <li
@@ -62,6 +74,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Location')}
           >
+            <LocationOnOutlinedIcon />
             <a href="#" className="ml-2">Location</a>
           </li>
           <li
@@ -70,6 +83,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('Directory')}
           >
+            <ArticleOutlinedIcon />
             <a href="#" className="ml-2">Directory</a>
           </li>
           <li
@@ -78,6 +92,7 @@ const NavBar = () => {
             } hover:bg-green-50`}
             onClick={() => setActiveItem('My Info')}
           >
+            <Person2OutlinedIcon />
             <a href="#" className="ml-2">My Info</a>
           </li>
         </ul>
@@ -109,7 +124,7 @@ const NavBar = () => {
               placeholder="Search"
               className="w-64 p-2 rounded-lg border border-white bg-white text-sm"
             />
-            <button className="text-white p-2">
+            <button className="text-white p-2 border border-black rounded-md">
               <span className="material-icons">search</span>
             </button>
           </div>
