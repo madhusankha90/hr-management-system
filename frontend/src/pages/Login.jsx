@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import loginImage from '../imges/login.png'; 
+import loginImage from '../imges/login.png';
 
 const Login = () => {
   const [userName, setUserName] = useState('');
@@ -23,6 +23,7 @@ const Login = () => {
         const {userRole} = user;
     
         localStorage.setItem('token',token);
+        localStorage.setItem('role',userRole)
        
         if (userRole === 'admin') {
           navigate('/admin-dashboard');

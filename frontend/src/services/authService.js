@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const login = async (username, password) => {
   try {
-    const res = await axios.post('/api/auth/login', { userName: username, password });
+    const res = await axios.post('http://localhost:5000/api/admin/login', { userName: username, password });
     const { token, user } = res.data;
     localStorage.setItem('token', token);
     localStorage.setItem('role', user.userRole);

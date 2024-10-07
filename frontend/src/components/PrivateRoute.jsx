@@ -5,6 +5,7 @@ const PrivateRoute = ({ component: Component, role }) => {
   const token = localStorage.getItem('token');
   const userRole = localStorage.getItem('role');
 
+ // console.log('PrivateRoute: token=', token, 'userRole=', userRole, 'requiredRole=', role);
   if (!token || userRole !== role) {
     return <Navigate to="/login" />;
   }
