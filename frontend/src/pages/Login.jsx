@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import loginImage from '../imges/login.png';
+import background from '../imges/background.png'; // importing the background image
 
 const Login = () => {
   const [userName, setUserName] = useState('');
@@ -18,19 +19,16 @@ const Login = () => {
         password,
       });
       if (response.status === 200) {
-    
-        const {token, user} = response.data;
-        const {userRole} = user;
-    
-        localStorage.setItem('token',token);
-        localStorage.setItem('role',userRole)
-       
+        const { token, user } = response.data;
+        const { userRole } = user;
+        localStorage.setItem('token', token);
+        localStorage.setItem('role', userRole);
+
         if (userRole === 'admin') {
           navigate('/admin-dashboard');
-        }else {
+        } else {
           navigate('/user-dashboard');
         }
-
       }
     } catch (error) {
       setError(error.response?.data?.message || 'An error occurred');
@@ -38,12 +36,14 @@ const Login = () => {
   };
 
   return (
-    <div className="relative w-full h-screen bg-green-700 overflow-hidden">
-      <div className="absolute w-[724px] h-[724px] left-[-362px] top-[358px] bg-[rgba(48,174,72,0.76)] rounded-full"></div>
-      <div className="absolute w-[572px] h-[572px] left-[-286px] top-[434px] bg-yellow-500 rounded-full"></div>
-      <div className="absolute w-[438px] h-[438px] left-[-219px] top-[501px] bg-green-700 rounded-full"></div>
-      <div className="absolute w-[864px] h-[835px] left-[416px] top-0 bg-[rgba(48,174,72,0.76)]"></div>
-
+    <div
+      className="relative w-full h-screen overflow-hidden"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="absolute w-[90%] max-w-[357px] left-1/2 transform -translate-x-1/2 top-[15%]">
         <h1 className="text-white text-3xl font-bold text-center uppercase mb-6">
           Welcome Back
