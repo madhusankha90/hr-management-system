@@ -17,6 +17,7 @@ const App = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/navbar' element={<NavBar/>} />
+          {/* <Route path='/admin-dashboard/punchin' element={<PunchIn/>}/> */}
           
 
           <Route path='/admin-dashboard' element={<PrivateRoute role="admin" component={AdminDashboard}/>}/>

@@ -11,9 +11,9 @@ const PunchInCard = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async  (e) => {
-    e.preverntDefault();
+    e.preventDefault();
     try {
-      const response = await axios.post('',{
+      const response = await axios.post('http://localhost:5000/api/user/create-punch',{
         date,
         time,
         note
@@ -27,7 +27,7 @@ const PunchInCard = () => {
     }
   };
 
-  const handlePunchOutCancel = (e) => {
+  const handlePunchOutCancel = () => {
     alert('Punched out cancelled');
     navigate('/admin-dashboard')
   }

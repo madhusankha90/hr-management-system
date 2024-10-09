@@ -10,6 +10,11 @@ const punchSchema = new mongoose.Schema({
         required: true
     },
     note:{
-        
+        type: String,
+        required: true
     }
 })
+
+const Punch = mongoose.model('punches',punchSchema);
+
+module.exports = Punch;

@@ -1,4 +1,5 @@
 const Employee = require("../models/employeeModel");
+const Punch = require('../models/punchInModel')
 
 const createEmployee = async (req, res) => {
   const { personalDetails, contactsDetails, customFields } = req.body;
@@ -77,4 +78,15 @@ const updateEmployee = async (req, res) => {
   }
 };
 
-module.exports = { createEmployee, updateEmployee };
+const createPunch = async (req,res) => {
+      const {date, time, note} = req.body;
+      try {
+        const punch = new Punch({date, time, note});
+        await punch.save();
+        res.status(201).json({message: "punchout successfull"})
+      } catch (error) {
+        res.status(500).json({error: "internal error"})
+      }
+}
+
+module.exports = { createEmployee, updateEmployee, createPunch };
