@@ -9,7 +9,7 @@ const punchSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    note:{
+    punchNote:{
         type: String,
         required: true
     }

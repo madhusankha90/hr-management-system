@@ -1,5 +1,5 @@
 const Employee = require("../models/employeeModel");
-const Punch = require('../models/punchInModel')
+const Punch = require('../models/punchInModel');
 
 const createEmployee = async (req, res) => {
   const { personalDetails, contactsDetails, customFields } = req.body;
@@ -79,14 +79,24 @@ const updateEmployee = async (req, res) => {
 };
 
 const createPunch = async (req,res) => {
-      const {date, time, note} = req.body;
+      const {date, time, punchNote} = req.body;
       try {
-        const punch = new Punch({date, time, note});
+        const punch = new Punch({date, time, punchNote});
         await punch.save();
-        res.status(201).json({message: "punchout successfull"})
+        res.status(201).json({message: "punchout successfull",punch})
       } catch (error) {
         res.status(500).json({error: "internal error"})
       }
 }
 
-module.exports = { createEmployee, updateEmployee, createPunch };
+const getPunch = async (req,res) => {
+  try {
+    const getpunches = await Punch.find();
+    res.json({getpunches})
+    
+  } catch (error) {
+    res.status(500).json({error:"internal error"});
+  }
+}
+
+module.exports = { createEmployee, updateEmployee, createPunch, getPunch };
