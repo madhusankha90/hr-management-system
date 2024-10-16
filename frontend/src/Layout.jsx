@@ -11,7 +11,7 @@ const Layout = () => {
         <SideMenu />
         <div className="flex-grow">
           <Header />
-          <div className="p-4">
+          <div className="flex-grow">
             <Outlet />
           </div>
         </div>
