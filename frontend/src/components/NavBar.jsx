@@ -8,23 +8,24 @@ import MilitaryTechOutlinedIcon from '@mui/icons-material/MilitaryTechOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
-  const [activeItem, setActiveItem] = useState('Dashboard'); // Manage active state
   const [currentTime, setCurrentTime] = useState(new Date());
+  const navigate = useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
-    }, 1000); // Update every second
+    }, 1000);
 
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
+
+  
 
   return (
     <div className="bg-slate-100 flex">
-      {/* Sidebar */}
       <div className="w-64 h-screen bg-white border-r border-gray-200 relative">
         {/* Logo */}
         <div className="p-6">
@@ -34,69 +35,53 @@ const NavBar = () => {
         {/* Menu Items */}
         <ul className="space-y-4">
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Dashboard')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/admin-dashboard')}
           >
             <HomeOutlinedIcon />
-            <a href="#" className="ml-2">Dashboard</a>
+            <span className="ml-2">Dashboard</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Leave' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Leave')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/leave')}
           >
             <ExitToAppOutlinedIcon />
-            <a href="#" className="ml-2">Leave</a>
+            <span className="ml-2">Leave</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Time' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Time')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/time')}
           >
             <AccessTimeOutlinedIcon />
-            <a href="#" className="ml-2">Time</a>
+            <span className="ml-2">Time</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Performance' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Performance')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/performance')}
           >
             <MilitaryTechOutlinedIcon />
-            <a href="#" className="ml-2">Performance</a>
+            <span className="ml-2">Performance</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Location' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Location')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/location')}
           >
             <LocationOnOutlinedIcon />
-            <a href="#" className="ml-2">Location</a>
+            <span className="ml-2">Location</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'Directory' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('Directory')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/directory')}
           >
             <ArticleOutlinedIcon />
-            <a href="#" className="ml-2">Directory</a>
+            <span className="ml-2">Directory</span>
           </li>
           <li
-            className={`px-6 py-2 flex items-center cursor-pointer ${
-              activeItem === 'My Info' ? 'bg-green-100 text-green-700' : 'text-black'
-            } hover:bg-green-50`}
-            onClick={() => setActiveItem('My Info')}
+            className="px-6 py-2 flex items-center cursor-pointer hover:bg-green-50"
+            onClick={() => navigate('/userinfo')}
           >
             <Person2OutlinedIcon />
-            <Link to='/userinfo' className="ml-2" onClick={() => setActiveItem('UserInfo')}>
-            My Info
-            </Link>
+            <span className="ml-2">My Info</span>
           </li>
         </ul>
 
@@ -136,6 +121,7 @@ const NavBar = () => {
         {/* Main Content Area */}
         <div className="p-10">
           {/* Add dashboard content here */}
+          
         </div>
       </div>
     </div>

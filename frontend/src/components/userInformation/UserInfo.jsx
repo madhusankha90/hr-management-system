@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserInfo = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-8">
+    <div className="min-h-screen flex  bg-gray-100 py-8">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
         <h2 className="text-lg text-gray-700 mb-2">Pasindu Madushka</h2>
         <p className="text-gray-500 mb-8">Your account is ready, you can now apply for advice.</p>
