@@ -4,6 +4,7 @@ import WorkingHoursCard from './admin/dashComponets/WorkingHoursCard'
 import QuickLaunchCard from './admin/dashComponets/QuickLaunchCard'
 import LeaveAvailabilityCard from './admin/dashComponets/LeaveAvailabilityCard '
 import ScheduleCard from './admin/dashComponets/ScheduleCard '
+import UserInfo from './userInformation/UserInfo'
 
 const AdminDashboard = () => {
   return (
@@ -19,13 +20,14 @@ const AdminDashboard = () => {
         <div>
             <QuickLaunchCard/>
         </div> */}
-        <div>
+        {/* <div>
           <LeaveAvailabilityCard/>
-        </div>
+        </div> */}
         {/* <div>
           <ScheduleCard/>
         </div>
          */}
+         <UserInfo/>
     </div>
   )
 }

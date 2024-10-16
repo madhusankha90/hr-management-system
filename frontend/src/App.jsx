@@ -7,6 +7,8 @@ import UserDashboard from './components/UserDashboard';
 import NavBar from './components/NavBar';
 import AdminDashboard from './components/AdminDashboard';
 import PunchIn from './components/admin/dashComponets/PunchIn';
+import UserInfo from './components/userInformation/UserInfo';
+import Layout from './Layout';
 
 const App = () => {
   return (
@@ -17,7 +19,11 @@ const App = () => {
           <Route path='/home' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/navbar' element={<NavBar/>} />
-          {/* <Route path='/admin-dashboard/punchin' element={<PunchIn/>}/> */}
+          <Route path='/userinfo' element={<UserInfo/>} /> 
+          {/* <Route path='/admin-dashboard/punchin' element={<PunchIn/>}/>
+
+          {/* <Route path='/' element={<Layout/>}/>
+          <Route path="userinfo" element={<UserInfo />} /> */}
           
 
           <Route path='/admin-dashboard' element={<PrivateRoute role="admin" component={AdminDashboard}/>}/>

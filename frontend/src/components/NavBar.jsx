@@ -8,6 +8,7 @@ import MilitaryTechOutlinedIcon from '@mui/icons-material/MilitaryTechOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [activeItem, setActiveItem] = useState('Dashboard'); // Manage active state
@@ -93,7 +94,9 @@ const NavBar = () => {
             onClick={() => setActiveItem('My Info')}
           >
             <Person2OutlinedIcon />
-            <a href="#" className="ml-2">My Info</a>
+            <Link to='/userinfo' className="ml-2" onClick={() => setActiveItem('UserInfo')}>
+            My Info
+            </Link>
           </li>
         </ul>
 
