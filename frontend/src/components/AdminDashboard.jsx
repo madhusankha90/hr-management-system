@@ -9,7 +9,7 @@ import UserInfo from './userInformation/UserInfo'
 const AdminDashboard = () => {
   return (
     <div>
-         {/* <div>
+         <div>
             <TimeAtWorkCard/>
         </div>
         
@@ -19,15 +19,15 @@ const AdminDashboard = () => {
 
         <div>
             <QuickLaunchCard/>
-        </div> */}
+        </div> 
         {/* <div>
           <LeaveAvailabilityCard/>
         </div> */}
         {/* <div>
           <ScheduleCard/>
         </div>
-         */}
-         <UserInfo/>
+        
+         {/* <UserInfo/> */}
     </div>
   )
 }

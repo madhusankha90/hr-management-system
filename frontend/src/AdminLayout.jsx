@@ -4,7 +4,7 @@ import SideMenu from "./components/SideMenu";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const Layout = () => {
+const AdminLayout = () => {
   return (
     <div className="bg-slate-100 flex min-h-screen flex-col">
       <div className="flex-grow flex">
@@ -21,4 +21,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default AdminLayout;
