@@ -81,7 +81,7 @@ const SideMenu = () => {
       </ul>
 
       {/* User Info */}
-      <div className="absolute bottom-0 p-6 w-full">
+      <div className="absolute p-6 w-full bottom-0">
         <div className="flex items-center">
           <img src="user-image.jpg" alt="User" className="h-10 w-10 rounded-full" />
           <div className="ml-4">
