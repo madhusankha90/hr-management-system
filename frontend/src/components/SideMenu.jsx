@@ -21,14 +21,14 @@ const SideMenu = () => {
   };
 
   return (
-    <div className="w-64 h-screen bg-white border-r border-gray-200 relative">
+    <div className="w-64 h-[95vh] bg-white border-r border-gray-200 relative font-primary text-primary-size">
       {/* Logo */}
       <div className="p-6">
         <img src={w3inventor} alt="Company Logo" className="h-8 mb-6" />
       </div>
 
       {/* Menu Items */}
-      <ul className="space-y-4">
+      <ul className="space-y-3">
         <li
           className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : ''}`}
           onClick={() => handleNavClick('Dashboard', '/dashboard')}
@@ -76,7 +76,7 @@ const SideMenu = () => {
           onClick={() => handleNavClick('My Info', '/myinfo')}
         >
           <Person2OutlinedIcon />
-          <span className="ml-2">My Info</span>
+          <span className="ml-2">User Info</span>
         </li>
       </ul>
 
