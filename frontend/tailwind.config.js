@@ -12,8 +12,11 @@ export default {
       },
       fontSize: {
         'primary-size': '15px',
-        'secondary-size': '16px',
+        'secondary-size': '12px',
       },
+      fontWeight:{
+
+      }
 
       
     },

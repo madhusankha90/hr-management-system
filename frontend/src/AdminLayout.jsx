@@ -11,12 +11,19 @@ const AdminLayout = () => {
         <SideMenu />
         <div className="flex-grow">
           <Header />
-          <div className="flex-grow p-4">
+          <div className="flex-grow p-4 h-[65vh]">
             <Outlet />
+            <Footer />
+            
           </div>
+        
+         
+          
+          
         </div>
+      
       </div>
-      <Footer />
+      
     </div>
   );
 };

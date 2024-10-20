@@ -21,7 +21,8 @@ const SideMenu = () => {
   };
 
   return (
-    <div className="w-64 h-[95vh] bg-white border-r border-gray-200 relative font-primary text-primary-size">
+    <div className="w-[30vh] h-[100vh] min-w-[10rem] min-h-[38rem] bg-white border-r border-gray-200 relative font-primary text-primary-size font-bold">
+      {/* <div className="w-64 h-[100vh] bg-white border-r border-gray-200 relative font-primary text-primary-size"> */}
       {/* Logo */}
       <div className="p-6">
         <img src={w3inventor} alt="Company Logo" className="h-8 mb-6" />

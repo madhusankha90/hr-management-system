@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div className="p-4 flex justify-between items-center" style={{ backgroundColor: '#00961C' }}>
+    <div className="h-[8vh] min-h-[3rem] p-4 flex justify-between items-center font-primary" style={{ backgroundColor: '#00961C' }}>
       <div className="text-white font-semibold">User Management</div>
       <div className="flex items-center space-x-2">
         <input

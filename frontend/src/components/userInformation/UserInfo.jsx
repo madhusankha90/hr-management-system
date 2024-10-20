@@ -2,9 +2,9 @@ import React from 'react';
 
 const UserInfo = () => {
   return (
-    <div className="h-[80vh] flex  bg-gray-100 overflow-hidden">
+    <div className="h-[73vh] flex min-h-[25rem] bg-gray-100 rounded-lg border border-black overflow-auto">
       {/* <div className="min-h-[calc(100vh-4rem)] flex  bg-gray-100 overflow-hidden"></div> */}
-      <div className="bg-white shadow-lg p-5 w-full max-w-5xl">
+      <div className="bg-white shadow-lg p-5 w-full font-primary font-semibold text-secondary-size">
         <h2 className="text-lg text-gray-700 mb-2">Pasindu Madushka</h2>
         <p className="text-gray-500 mb-8">Your account is ready, you can now apply for advice.</p>
         
