@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <div className="h-[8vh] min-h-[3rem] p-4 flex justify-between items-center font-primary" style={{ backgroundColor: '#00961C' }}>
-      <div className="text-white font-semibold">User Management</div>
+      <div className="text-white font-semibold">{title}</div>
       <div className="flex items-center space-x-2">
         <input
           type="text"

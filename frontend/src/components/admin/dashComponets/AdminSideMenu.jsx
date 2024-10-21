@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import w3inventor from '../imges/w3inventor.png';
+import w3inventor from '../../../imges/w3inventor.png';
 
+import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
@@ -10,8 +11,8 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 
-const SideMenu = ({setActiveMenuItem}) => {
-  const [activeItem, setActiveItem] = useState('Dashboard');
+const AdminSideMenu = () => {
+  const [activeItem, setActiveItem] = useState(null); // Track active item
   const [currentTime, setCurrentTime] = useState(new Date());
   const navigate = useNavigate();
 
@@ -23,9 +24,8 @@ const SideMenu = ({setActiveMenuItem}) => {
   }, [])
 
   const handleNavClick = (item, route) => {
-    setActiveItem(item);
-    setActiveMenuItem(item);
-    navigate(route);      
+    setActiveItem(item);  // Set the active item
+    navigate(route);      // Navigate to the route
   };
 
   return (
@@ -38,6 +38,13 @@ const SideMenu = ({setActiveMenuItem}) => {
 
       {/* Menu Items */}
       <ul className="space-y-3">
+      <li
+          className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : ''}`}
+          onClick={() => handleNavClick('Dashboard', '/this/admin-dashboard')}
+        >
+          <AdminPanelSettingsOutlinedIcon />
+          <span className="ml-2">Admin</span>
+        </li>
         <li
           className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : ''}`}
           onClick={() => handleNavClick('Dashboard', '/dashboard')}
@@ -85,7 +92,7 @@ const SideMenu = ({setActiveMenuItem}) => {
           onClick={() => handleNavClick('My Info', '/myinfo')}
         >
           <Person2OutlinedIcon />
-          <span className="ml-2">My Info</span>
+          <span className="ml-2">User Info</span>
         </li>
       </ul>
 
@@ -107,4 +114,4 @@ const SideMenu = ({setActiveMenuItem}) => {
   );
 };
 
-export default SideMenu;
+export default AdminSideMenu;
