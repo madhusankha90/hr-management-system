@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import w3inventor from '../../../imges/w3inventor.png';
+import w3inventor from '../../imges/w3inventor.png';
 
 import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
@@ -40,7 +40,7 @@ const AdminSideMenu = () => {
       <ul className="space-y-3">
       <li
           className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : ''}`}
-          onClick={() => handleNavClick('Dashboard', '/this/admin-dashboard')}
+          onClick={() => handleNavClick('Dashboard', '/this/usermanagemet')}
         >
           <AdminPanelSettingsOutlinedIcon />
           <span className="ml-2">Admin</span>

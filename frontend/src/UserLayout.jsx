@@ -14,7 +14,7 @@ const UserLayout = () => {
       <SideMenu  setActiveMenuItem={setActiveMenuItem}/>
         <div className="flex-grow">
           <Header title={activeMenuItem}/>
-          <div className="flex-grow p-4">
+          <div className="flex-grow p-5">
           {/* <div className="flex-grow p-4 h-[65vh]"> */}
             <Outlet />
             <Footer />

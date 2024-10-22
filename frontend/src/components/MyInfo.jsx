@@ -1,9 +1,29 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyInfo = () => {
+
+  const navigate = useNavigate();
   return (
-    <div className="flex min-h-[25rem] bg-gray-100 rounded-lg border border-black overflow-auto">
+    <div>
+      <div className="pb-5">
+      <div className="container mx-auto flex justify-center items-center">
+        <div className="hidden md:flex space-x-6 font-primary text-primary-size cursor-pointer">
+          <span className="hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" onClick={()=>navigate('/dashboard')} >Personal Details</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Contact Details</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Emergency Contacts</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Job</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Salary</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Qualifications</span>
+          <span className=" hover:text-white hover:bg-yellow-500 bg-gray-200 p-5 rounded-xl shadow-md" >Report to</span>
+          
+        </div>
+      </div>
+      </div>
+    <div className="flex min-h-[25rem] mx-auto bg-gray-100 rounded-xl overflow-auto shadow-md">
       {/* <div className="h-[73vh] flex min-h-[25rem] bg-gray-100 rounded-lg border border-black overflow-auto"> */}
+
+      
   
       <div className="bg-white shadow-lg p-5 w-full font-primary font-semibold text-secondary-size">
         <h2 className="text-lg text-gray-700 mb-2">Pasindu Madushka</h2>
@@ -35,7 +55,8 @@ const MyInfo = () => {
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="w-full border rounded-md p-2 mt-1"
+                  className="w-full border rounded-md p-2 mt-1 cursor-default"
+                  readOnly
                 />
               </div>
               <div className="mt-auto">
@@ -118,6 +139,7 @@ const MyInfo = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -2,7 +2,8 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import AdminSideMenu from "./components/admin/dashComponets/AdminSideMenu";
+import AdminSideMenu from "./components/admin/AdminSideMenu";
+
 
 const AdminLayout = () => {
   return (
