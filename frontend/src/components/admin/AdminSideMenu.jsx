@@ -30,7 +30,7 @@ const AdminSideMenu = () => {
 
   return (
     <div className="w-[30vh] h-[100vh] min-w-[10rem] min-h-[38rem] bg-white border-r border-gray-200 
-    relative font-primary text-sm font-semibold">
+    relative font-primary text-sm font-semibold border">
       {/* <div className="w-64 h-[100vh] bg-white border-r border-gray-200 relative font-primary text-primary-size"> */}
       {/* Logo */}
       <div className="p-6">
@@ -40,8 +40,8 @@ const AdminSideMenu = () => {
       {/* Menu Items */}
       <ul className="space-y-3">
       <li
-          className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Dashboard' ? 'bg-green-100 text-green-700' : ''}`}
-          onClick={() => handleNavClick('Dashboard', '/this/usermanagemet')}
+          className={`px-6 py-2 flex items-center cursor-pointer hover:bg-green-50 ${activeItem === 'Usermanage' ? 'bg-green-100 text-green-700' : ''}`}
+          onClick={() => handleNavClick('Usermanage', '/this/usermanage')}
         >
           <AdminPanelSettingsOutlinedIcon />
           <span className="ml-2">Admin</span>

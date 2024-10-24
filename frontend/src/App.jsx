@@ -14,6 +14,7 @@ import AdminLayout from './AdminLayout';
 import UserInfo from './components/MyInfo'
 import MyInfo from './components/MyInfo';
 import UserLayout from './UserLayout';
+import UserManagement from './components/admin/UserManagement';
 import AddUser from './components/admin/AddUser';
 
 const App = () => {
@@ -38,7 +39,8 @@ const App = () => {
 
           <Route path='/this' element={<AdminLayout/>}>
             <Route path='/this/admin-dashboard' element={<AdminDashboard/>}/>
-            <Route path='/this/usermanagemet' element={<AddUser/>}/>
+            <Route path='/this/usermanage' element={<UserManagement/>}/>
+            <Route path='/this/adduser' element={<AddUser/>} />
             {/* <Route path='/admin-dashboard' element={<PrivateRoute role="admin" component={AdminDashboard}/>}/>
             <Route path='/admin-dashboard/punchin' element={<PrivateRoute role="admin" component={PunchIn}/>}/> */}
           </Route>
