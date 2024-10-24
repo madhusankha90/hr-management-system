@@ -13,12 +13,14 @@ export default {
       fontSize: {
         'primary-size': '15px',
         'secondary-size': '13px',
+        'third-size' : '12px',
+        'fourth-size' : '10px',
       },
-      fontWeight:{
-
-      }
-
-      
+      colors:{
+        yellow: {
+          500: '#fbbf24',
+        }
+      }  
     },
   },
   plugins: [],

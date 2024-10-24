@@ -29,8 +29,8 @@ const SideMenu = ({setActiveMenuItem}) => {
   };
 
   return (
-    <div className="w-[30vh] h-[100vh] min-w-[10rem] min-h-[38rem] bg-white border-r border-gray-200 relative font-primary text-primary-size font-bold">
-      {/* <div className="w-64 h-[100vh] bg-white border-r border-gray-200 relative font-primary text-primary-size"> */}
+    <div className="w-[30vh] h-[100vh] min-w-[10rem] min-h-[38rem] bg-white border-r border-gray-200 relative font-primary text-sm font-semibold">
+
       {/* Logo */}
       <div className="p-6">
         <img src={w3inventor} alt="Company Logo" className="h-8 mb-6" />
@@ -94,7 +94,7 @@ const SideMenu = ({setActiveMenuItem}) => {
         <div className="flex items-center">
           <img src="user-image.jpg" alt="User" className="h-10 w-10 rounded-full" />
           <div className="ml-4">
-            <h4 className="text-sm font-semibold">Patrick Matshaba</h4>
+            <h4 className="text-xs font-semibold">Patrick Matshaba</h4>
             <p className="text-xs text-gray-500">CEO</p>
           </div>
         </div>
